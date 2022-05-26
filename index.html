@@ -10,11 +10,12 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>My Lil Library</h1>
-            <button id="new-book">New book</button>
-        </header>
         <main>
+            <h1>My Lil Library</h1>
+            <div id="books"></div>
+        </main>
+        <aside>
+            <button id="new-book">New book</button>
             <form action="/" class="hidden">
                 <h3>Add a new book</h3>
                 <div class="form-field">
@@ -42,9 +43,7 @@
                     <button type="button" id="add-book">Add book</button>
                 </div>
             </form>
-           
-            <div id="books"></div>
-        </main>
+        </aside>
     </div>
 </body>
 </html>
