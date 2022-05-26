@@ -53,6 +53,8 @@ function displayBooks() {
     for (item of myLibrary) {
         // Create an article element to hold the book details
         let bookArticle = document.createElement('article');
+        let bookIndex = myLibrary.indexOf(item);
+        bookArticle.id = bookIndex;
 
         // Create header and paragraphs to display book details
         let bookTitle = document.createElement('h2');
@@ -64,11 +66,20 @@ function displayBooks() {
         let bookRead = document.createElement('p');
         bookRead.textContent = `${item.read ? 'Read' : 'Not read'}`;
 
+        // Create buttons and add them to the book article
+        let deleteButton = document.createElement('button');
+        deleteButton.id = 'delete';
+        deleteButton.textContent = 'Delete';
+
+        let toggleReadButton = document.createElement('button');
+        toggleReadButton.id = 'toggle-read';
+        toggleReadButton.textContent = 'Mark read/unread';
+
         // Add the book details to the book article
-        bookArticle.append(bookTitle, bookAuthor, bookPages, bookRead);
+        bookArticle.append(bookTitle, bookAuthor, bookPages, bookRead, toggleReadButton, deleteButton);
 
         // Add the book article to the books container
-        booksContainer.append(bookArticle);
+        booksContainer.append(bookArticle);   
     }
 }
 
