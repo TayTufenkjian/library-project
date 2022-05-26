@@ -22,6 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Display the list of books again, including the newly added one
         displayBooks();
+
+        // Clear and hide the form
+        addBookForm.reset();
+        addBookForm.classList.add('hidden');
     })
 });
 
