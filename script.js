@@ -7,11 +7,26 @@ document.addEventListener('DOMContentLoaded', () => {
     newBookButton.addEventListener('click', () => {
         addBookForm.classList.remove('hidden');
     })
+
+    // Listen for a click on the button to add a book
+    let addBookButton = document.getElementById('add-book');
+    addBookButton.addEventListener('click', () => {
+        let bookTitle = document.querySelector('#title').value;
+        let bookAuthor = document.querySelector('#author').value;
+        let bookPages = document.querySelector('#pages').value;
+        let bookRead = document.querySelector('input[name="read"]').value;
+        addBookToLibrary(bookTitle, bookAuthor, bookPages, bookRead);
+
+        // Clear current contents of books container
+        document.getElementById('books').textContent = '';
+
+        // Display the list of books again, including the newly added one
+        displayBooks();
+    })
 });
 
 let myLibrary = [
     {title: 'The Hobbit', author: 'J.R.R Tolkien', pages: 295, read: true},
-    {title: 'Test Book', author: 'Jo Schmo', pages: 30, read: true},
     {title: 'James and the Giant Peach', author: 'Roal Dahl', pages: 125, read: false},
 ];
 
@@ -22,8 +37,9 @@ function Book(title, author, pages, read) {
     this.read = read
 }
 
-function addBookToLibrary() {
-    // stuff
+function addBookToLibrary(title, author, pages, read) {
+    let book = new Book(title, author, pages, read)
+    myLibrary.push(book);
 }
 
 function displayBooks() {
