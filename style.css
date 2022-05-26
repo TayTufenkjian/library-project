@@ -6,3 +6,16 @@ body {
     margin: 0 auto;
     width: 80%;
 }
+
+form {
+    background: rgb(220, 220, 220);
+    display: grid;
+    gap: 1rem;
+    margin: 1rem 0;
+    width: 50%;
+}
+
+.form-field {
+    display: grid;
+    grid-template-columns: 200px 200px;
+}
