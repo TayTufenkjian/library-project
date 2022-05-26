@@ -12,10 +12,10 @@
     <div class="container">
         <header>
             <h1>My Lil Library</h1>
-            <button>New book</button>
+            <button id="new-book">New book</button>
         </header>
         <main>
-            <form action="/" method="post">
+            <form action="/" class="hidden">
                 <h3>Add a new book</h3>
                 <div class="form-field">
                     <label for="title">Title</label>
@@ -32,7 +32,6 @@
                 <div class="form-field">
                     <fieldset>
                         <legend>Have you read it?</legend>
-                        <!-- <p>Have you read it?</p> -->
                         <input type="radio" name="read" id="yes" value="yes">
                         <label for="yes">Yes</label>
                         <input type="radio" name="read" id="no" value="no">
@@ -40,7 +39,7 @@
                     </fieldset>
                 </div>
                 <div>
-                    <button type="button">Add book</button>
+                    <button type="button" id="add-book">Add book</button>
                 </div>
             </form>
            

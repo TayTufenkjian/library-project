@@ -12,10 +12,14 @@ form {
     display: grid;
     gap: 1rem;
     margin: 1rem 0;
-    width: 50%;
+    width: 500px;
 }
 
 .form-field {
     display: grid;
     grid-template-columns: 200px 200px;
+}
+
+form.hidden {
+    display: none;
 }

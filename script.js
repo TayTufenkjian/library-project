@@ -1,5 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     displayBooks();
+
+    // Listen for a click on the button to display the add book form
+    let newBookButton = document.getElementById('new-book');
+    let addBookForm = document.querySelector('form');
+    newBookButton.addEventListener('click', () => {
+        addBookForm.classList.remove('hidden');
+    })
 });
 
 let myLibrary = [
