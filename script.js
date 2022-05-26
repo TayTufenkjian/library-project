@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let bookTitle = document.querySelector('#title').value;
         let bookAuthor = document.querySelector('#author').value;
         let bookPages = document.querySelector('#pages').value;
-        let bookRead = document.querySelector('input[name="read"]').value;
+        let bookRead = document.querySelector('input[name="read"]:checked').value === 'true' ? true : false;
         addBookToLibrary(bookTitle, bookAuthor, bookPages, bookRead);
 
         // Clear current contents of books container
