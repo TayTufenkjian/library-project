@@ -25,27 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
         addBookForm.reset();
         addBookForm.classList.add('hidden');
     })
-
-
-    // Listen for click on the buttons to toggle read/unread status
-    let readButtons = document.querySelectorAll('.toggle-read');
-    readButtons.forEach(button => button.addEventListener('click', () => {
-        // Get the index of the book in myLibrary from the article id
-        let bookIndex = button.parentElement.dataset.attribute;
-        // Toggle the book's read/unread status
-        myLibrary[bookIndex].read =  !(myLibrary[bookIndex].read); 
-        // Update the book details on the page
-        let bookRead = document.querySelector(`[data-attribute="${bookIndex}"] .read-status`);
-        bookRead.textContent = `${myLibrary[bookIndex].read ? 'Read' : 'Not read'}`;
-    }))
-
 });
 
 let myLibrary = [
     {title: 'The Hobbit', author: 'J.R.R Tolkien', pages: 295, read: true},
-    {title: 'James and the Giant Peach', author: 'Roal Dahl', pages: 125, read: false},
-    {title: 'The Giving Tree', author: 'Lois Lowry', pages: 99, read: true},
-    {title: 'Some Other Book', author: 'Jo Schmo', pages: 180, read: true}
+    {title: 'James and the Giant Peach', author: 'Roal Dahl', pages: 125, read: false}
 ];
 
 function Book(title, author, pages, read) {
@@ -62,6 +46,31 @@ function addBookToLibrary(title, author, pages, read) {
 
 function removeBook(index) {
     myLibrary.splice(index, 1);
+}
+
+function listenForBookRemoval() {
+    // Listen for click on the buttons to remove a book
+    let removeButtons = document.querySelectorAll('.remove');
+    removeButtons.forEach(button => button.addEventListener('click', () =>  {
+        // Get the index of the book in myLibrary from the article id
+        let bookIndex = button.parentElement.dataset.attribute;
+        removeBook(bookIndex);
+        displayBooks();
+    }))
+}
+
+function listenForReadToggle() {
+    // Listen for click on the buttons to toggle read/unread status
+    let readButtons = document.querySelectorAll('.toggle-read');
+    readButtons.forEach(button => button.addEventListener('click', () => {
+        // Get the index of the book in myLibrary from the article id
+        let bookIndex = button.parentElement.dataset.attribute;
+        // Toggle the book's read/unread status
+        myLibrary[bookIndex].read =  !(myLibrary[bookIndex].read); 
+        // Update the book details on the page
+        let bookRead = document.querySelector(`[data-attribute="${bookIndex}"] .read-status`);
+        bookRead.textContent = `${myLibrary[bookIndex].read ? 'Read' : 'Not read'}`;
+    }))
 }
 
 function displayBooks() {
@@ -103,5 +112,9 @@ function displayBooks() {
         // Add the book article to the books container
         booksContainer.append(bookArticle);   
     }
+
+    // Add event listeners on read toggle buttons and remove buttons
+    listenForReadToggle();
+    listenForBookRemoval();
 }
 
