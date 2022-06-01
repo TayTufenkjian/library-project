@@ -32,11 +32,13 @@ let myLibrary = [
     {title: 'James and the Giant Peach', author: 'Roal Dahl', pages: 125, read: false}
 ];
 
-function Book(title, author, pages, read) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
 }
 
 function addBookToLibrary(title, author, pages, read) {
